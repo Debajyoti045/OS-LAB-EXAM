@@ -41,7 +41,6 @@ int main()
           q.push(process);
         }
         else{
-            vis[process] = 1;
             time+=length[process];
          for(int i=0;i<n;i++){
             if(time>=arrival[i] && !vis[i]){
