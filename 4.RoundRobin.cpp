@@ -25,6 +25,7 @@ int main()
     int time = 0;
     queue<int>q;
     q.push(0);
+    vis[0] = 1;
     while(!q.empty()){
         int process = q.front();
         q.pop();
@@ -34,6 +35,7 @@ int main()
           for(int i=0;i<n;i++){
             if(time>=arrival[i] && !vis[i]){
                 q.push(i);
+                vis[i] = 1;
             }
           }
           q.push(process);
@@ -44,6 +46,7 @@ int main()
          for(int i=0;i<n;i++){
             if(time>=arrival[i] && !vis[i]){
                 q.push(i);
+                vis[i] = 1;
             }
           }
 
@@ -68,22 +71,22 @@ int main()
     float averageTurn = 0.0;
     for(auto it:TurnAroundTime) averageTurn+=it;
     cout<<(float)(averageTurn/n)<<endl;
-// process = 5,arrival[]={0,1,2,3,4},length[]={4,3,1,5,2},
-// priority[]={2,3,4,5,6}
-
+// process = 5,arrival[]={0,0,2,8,12},length[]={8,10,5,6,4},
+// Quantum time = 2
 // Input:
 // 5
-// 0 4 2
-// 1 3 3
-// 2 1 4
-// 3 5 5
-// 4 2 6
-// output:
+// 0 8
+// 0 10
+// 2 5
+// 8 6
+// 12 4
+// 2
+// Output:
 // Waiting time:
-// 0 11 9 3 0 
+// 17 23 14 17 13 
 // TurnAround time:
-// 4 14 10 8 2 
-// Average Waiting Time: 4.6
-// Average TurnAround Time: 7.6
+// 25 33 19 23 17 
+// Average Waiting Time: 16.8
+// Average TurnAround Time: 23.4
     return 0;
 }
