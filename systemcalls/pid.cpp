@@ -10,9 +10,9 @@ void childProcess(pid_t pid)
 
 void parentProcess(pid_t pid)
 {
-  int status;                                // Variable to store the status of the child process
-  waitpid(pid, &status, 0);                  // Correctly wait for the specific child process
-  cout << "Parent process: " << pid << endl; // Use getpid() to get the parent's PID
+  int status;                                     // Variable to store the status of the child process
+  waitpid(pid, &status, 0);                       // Correctly wait for the specific child process
+  cout << "Parent process: " << getpid() << endl; // Use getpid() to get the parent's PID
 }
 
 int main()
